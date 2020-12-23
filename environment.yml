@@ -6,8 +6,6 @@ channels:
 dependencies:
   - mamba
   - python>=3
-  - jupyterlab>=1.0
-  - jupyterlab_launcher>=0.5.0
   - snakemake-minimal=5.10.0
   - graphviz=2.42.3
   - nextflow
