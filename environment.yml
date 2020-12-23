@@ -1,0 +1,12 @@
+name: nxsnake
+
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - mamba
+  - python>=3
+  - jupyterlab>=1.0
+  - snakemake-minimal=5.10.0
+  - graphviz=2.42.3
+  - nextflow
