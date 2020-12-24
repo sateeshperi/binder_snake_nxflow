@@ -14,7 +14,7 @@ R2 = list(pd.read_table("data/samples.txt")["fq2"])
 rule all:
     input:
         "transcripts_index/hash.bin",
-        "results/diffexpr-results.csv"
+        "results/counts.tsv"
     message:
         "Job well done!"
 
@@ -56,16 +56,3 @@ rule create_counts:
         "results/counts.tsv"
     shell:
         "python scripts/createCounts.py {input.count}"
-
-# create table containing normalized data and differential expressions
-rule DESeq2_ExpressionFile:
-    input:
-        "results/counts.tsv"
-    output:
-        "results/diffexpr-results.csv"
-    params:
-        con = expand("{cons}", cons=conditions)
-    conda:
-       "deseq2.yaml"
-    shell:
-        "Rscript scripts/deseq2.r {params.con}"
